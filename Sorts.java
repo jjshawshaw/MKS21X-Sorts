@@ -38,18 +38,17 @@ public class Sorts{
     }
   }
 
-  public static void main(String[]args){
-    int[] a = new int[Integer.parseInt(args[0])];
-    for (int i = 0; i < Integer.parseInt(args[0]); i++){
-      a[i] = (int)(java.lang.Math.random() * 1000);
-      System.out.print(a[i] + " ");
-    }
-    System.out.println();
-    if (args[1].equals("sel")) selectionSort(a);
-    if (args[1].equals("bub")) bubbleSort(a);
-    for (int i = 0; i < a.length; i++){
-      System.out.print(a[i] + " ");
-    }
-    System.out.println();
+  public static void insertionSort(int[] ary){
+    for (int i = 1; i < ary.length; i++){
+      int temp = ary[i];
+      if (ary[i - 1] > ary[i]){
+        for (int x = i; x > 0; x--){
+          if (ary[i - 1] > ary[i]) ary[x] = temp;
+          else ary[x + 1] = ary[x];
+          }
+        }
+      }
   }
+
+
 }
