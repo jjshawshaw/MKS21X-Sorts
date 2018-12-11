@@ -48,18 +48,14 @@ public class Sorts{
       boolean inserted = false;
       int temp = ary[i];
       if (ary[i - 1] > ary[i]){
-        for (int x = i - 1; x >= 0; x--){
-          //System.out.println("\t " + x + ": " + ary[x]);
-          if (x == 0 || ary[x - 1] < temp){
-            //System.out.println(temp + " inserted: " + ary[x]);
-            ary[x + 1] = ary[x];
-            ary[x] = temp;
-            x = -1;
-          }
-          else{
-            ary[x + 1] = ary[x];
-          }
+        int x = i - 1;
+        while (x > 0 && ary[x - 1] > temp){
+          //System.out.println("\t " + x + ": " + ary[x])
+        ary[x + 1] = ary[x];
+        x--;
         }
+        ary[x + 1] = ary[x];
+        ary[x] = temp;
       }
     }
   }
