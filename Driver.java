@@ -2,10 +2,18 @@ import java.util.Arrays;
 public class Driver{
 
   public static void main(String[]artie){
-
-    int[] randish = new int[Integer.parseInt(artie[0])];
-    for(int i = 0 ; i < randish.length; i++){
-      randish[i] =(int)(Math.random()*10000);
+    int[] randish;
+    if (artie[0].equals("zeroes")) {
+      randish = new int[1000000];
+      for(int i = 0 ; i < randish.length; i++){
+        randish[i] = 0;
+      }
+    }
+    else{
+      randish = new int[Integer.parseInt(artie[0])];
+      for(int i = 0 ; i < randish.length; i++){
+        randish[i] =(int)(Math.random()*10000);
+      }
     }
 
     if(artie[1].equals("selection")){
