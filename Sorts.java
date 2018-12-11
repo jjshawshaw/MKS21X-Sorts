@@ -40,15 +40,27 @@ public class Sorts{
 
   public static void insertionSort(int[] ary){
     for (int i = 1; i < ary.length; i++){
+      // System.out.print(i + ": ");
+      // for (int y = 0; y < ary.length; y++){
+      //   System.out.print(ary[y] + " ");
+      // }
+      // System.out.println();
+      boolean inserted = false;
       int temp = ary[i];
       if (ary[i - 1] > ary[i]){
-        for (int x = i; x > 0; x--){
-          if (ary[i - 1] > ary[i]) ary[x] = temp;
-          else ary[x + 1] = ary[x];
+        for (int x = i - 1; x >= 0; x--){
+          //System.out.println("\t " + x + ": " + ary[x]);
+          if (x == 0 || ary[x - 1] < temp){
+            //System.out.println(temp + " inserted: " + ary[x]);
+            ary[x + 1] = ary[x];
+            ary[x] = temp;
+            x = -1;
+          }
+          else{
+            ary[x + 1] = ary[x];
           }
         }
       }
+    }
   }
-
-
 }
